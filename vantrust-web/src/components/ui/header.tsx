@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
@@ -23,10 +24,12 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-8">
             <Link href="/" className="flex items-center">
-              <img 
+              <Image 
                 src="/vnt-logo.svg" 
                 alt="Vantrust Logo" 
-                className="h-10 w-auto"
+                width={100} // Ajusta el ancho según tus necesidades
+                height={40} // Ajusta el alto según tus necesidades
+                priority 
               />
             </Link>
 
@@ -34,14 +37,14 @@ const Header = () => {
               <Link href="/" className="text-gray-600 hover:text-gray-900">
                 Inicio
               </Link>
-              <Link href="/quienes-somos" className="text-gray-600 hover:text-gray-900">
-                Servicios
+              <Link href="/dinamicTable" className="text-gray-600 hover:text-gray-900">
+                Tabla Dinamica
               </Link>
               <Link href="/servicios" className="text-gray-600 hover:text-gray-900">
-                {/*+href sin utilizar */}
+                
               </Link>
               <Link href="/contacto" className="text-gray-600 hover:text-gray-900">
-                {/* aqui igual */}
+                
               </Link>
             </nav>
           </div>
@@ -50,10 +53,10 @@ const Header = () => {
           {!isAuthPage && (
             <div className="hidden md:flex space-x-2">
               <Button variant="outline" asChild>
-                <Link href="/login">Login</Link>
+                <Link href="/">Login</Link>
               </Button>
               <Button asChild>
-                <Link href="/crear-cuenta">Crear Cuenta</Link>
+                <Link href="/register">Crear Cuenta</Link>
               </Button>
             </div>
           )}

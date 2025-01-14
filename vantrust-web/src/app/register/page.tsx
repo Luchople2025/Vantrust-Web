@@ -58,7 +58,7 @@ export default function RegisterForm() {
   // Función para validar RUT chileno
   const validarRut = (rut: string) => {
     // Implementar validación de RUT
-    return true // Por ahora retorna true
+    if (!rut) return false;
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
